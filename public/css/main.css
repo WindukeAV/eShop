@@ -1,0 +1,44 @@
+/* THEMES */
+
+.c-primary {
+  color: #000;
+}
+
+.c-accent {
+  color: #fff;
+}
+
+.c-secondary {
+  color: #FF6666;
+}
+
+.c-secondary-d1 {
+  color: rgb(224, 62, 62);
+}
+
+.b-primary {
+  color: #E5E5E5;
+}
+
+.b-accent {
+
+}
+
+.b-secondary {
+    color: #FF4545;
+}
+
+/* LAYOUT */
+
+.container {  
+  width: 80%;
+	display: none;
+	margin: 0 auto;
+}
+
+.container__item {
+	width: 33.333%;
+    text-align: center;
+    border: 1px solid black;
+
+}
