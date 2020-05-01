@@ -12,8 +12,7 @@
 	min-width: 320px;
 	max-width: 661px;	
 	font-family: 'Roboto Slab', serif;
-	background-color: #FF4545;
-	
+	background-color: #FF4545;	
 }
 
 .homepage__title {	
@@ -38,10 +37,11 @@
 @media screen and (min-width: 1700px) {
 	.homepage__titles {
 		top: 250px;
-		left: 100px;		
+		left: 146px;		
 		width: 661px;
 		height: 251px;
 	}
+	
 	.homepage__title {
 		width: 607px;
 		margin: 20px 20px;
@@ -49,9 +49,26 @@
 		font-size: 56px;
 		line-height: 74px;
 	}
+
 	.homepage__subtitle {
 		padding: 20px;
 		font-size: 24px;
 		line-height: 32px;
 	}
+}
+
+.homepage__products_title {
+	margin-top: 50px;
+	font-family: Roboto;	
+	font-weight: 500;
+	font-size: 36px;
+	line-height: 42px;
+	text-transform: uppercase;
+}
+
+.homepage__products_cards {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }

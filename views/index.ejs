@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/public/css/main.css">
     <link rel="stylesheet" href="/public/css/home.css">
     <link rel="stylesheet" href="/public/css/navbar.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/card.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     
     <%- isContentRendered ? headCustomContent : include(headCustomContent) %> 
@@ -19,8 +20,8 @@
   </head>
 
   <body>
-    <%- include('./components/navbar/navbar.ejs') %> 
-    <%- isContentRendered ? content : include(content) %> 
+    <%- include('./components/navbar/navbar.ejs') %>
+    <%- isContentRendered ? content : include(content) %>     
   </body>
 
 </html>

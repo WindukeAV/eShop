@@ -1,0 +1,84 @@
+.card {
+	width: 318px;
+	height: 463px;
+	margin-bottom: 20px;;
+	border-radius: 4px;
+	background: #FFFFFF;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card__picture {
+	width: 318px;
+}
+
+.card__wrapper {
+	width: 85%;
+	margin: 0 auto;
+}
+
+.card__title {
+	font-size: 24px;
+	font-family: Roboto;
+	font-weight: 500;
+	line-height: 28px;
+}
+
+.card__subtitle {
+	font-size: 18px;
+	font-family: Roboto;
+	font-weight: 400;
+	line-height: 21px;
+
+}
+
+.card__parameters {
+	display: flex;
+	justify-content: space-between;
+}
+
+.card__parameters_presence {
+	margin: 0;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 500;
+	font-family: Roboto;
+	line-height: 28px;
+	color: #565656;
+}
+
+.card__parameters_cost {
+	margin: 0;
+	font-size: 24px;
+	font-family: Roboto;	
+	font-weight: 500;
+	line-height: 28px;	
+}
+
+.card__btn {
+	width: 168px;
+	height: 35px;
+	font-size: 16;
+	font-family: Roboto;	
+	font-weight: 500;
+	line-height: 19px;	
+	border-radius: 4px;
+	background: #FF4545;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	float:right;
+	margin-top: 24px;
+	outline: none;
+	border: 0;
+	}
+
+@media screen and (max-width: 414px) {
+	.card {
+		width: 355px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	
+
+}
+
