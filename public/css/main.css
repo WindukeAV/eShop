@@ -1,7 +1,7 @@
 /* THEMES */
 
 .c-primary {
-  color: #000;
+  color: rgb(0, 0, 0);
 }
 
 .c-accent {
@@ -17,28 +17,21 @@
 }
 
 .b-primary {
-  color: #E5E5E5;
+  background-color: #E5E5E5;
 }
 
 .b-accent {
-
+  background: #FF6666
 }
 
 .b-secondary {
-    color: #FF4545;
+  background-color: #FF4545;
 }
 
 /* LAYOUT */
 
-.container {  
-  width: 80%;
-	display: none;
-	margin: 0 auto;
-}
-
-.container__item {
-	width: 33.333%;
-    text-align: center;
-    border: 1px solid black;
-
+body {
+	margin: 0;
+	padding: 0;	
+	box-sizing: border-box;
 }
