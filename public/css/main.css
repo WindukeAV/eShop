@@ -34,19 +34,11 @@ body {
   background-color: #FF4545;
 }
 
+.t-primary {
+  color: #565656;
+}
+
 /* LAYOUT */
-
-.container {  
-  width: 80%;
-	display: none;
-	margin: 0 auto;
-}
-
-.container__item {
-	width: 33.333%;
-    text-align: center;
-    border: 1px solid black;
-}
 
 .wrapper {
   width: 85%;
