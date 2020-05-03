@@ -1,3 +1,9 @@
+body {
+	margin: 0;
+	padding: 0;	
+	box-sizing: border-box;
+}
+
 /* THEMES */
 
 .c-primary {
@@ -17,15 +23,15 @@
 }
 
 .b-primary {
-  color: #E5E5E5;
+  background-color: #E5E5E5;
 }
 
 .b-accent {
-
+  background: #FF6666
 }
 
 .b-secondary {
-    color: #FF4545;
+  background-color: #FF4545;
 }
 
 /* LAYOUT */
