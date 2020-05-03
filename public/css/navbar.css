@@ -12,7 +12,7 @@ body {
 	background: #FFFFFF;	
 }
 
-.navbar__menu_btn {
+.navbar__menubtn {
 	position: absolute;
 	top: 18px;
 	left: 8px;
@@ -99,7 +99,5 @@ body {
 	.navbar__wrapper {
 		width: 85%;
 		margin: 0 auto;
-	}
-
-	
+	}	
 }
