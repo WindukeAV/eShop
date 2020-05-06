@@ -40,14 +40,54 @@ body {
 
 /* LAYOUT */
 
-.wrapper {
-  width: 85%;
-  margin: 0 auto;
+.container {
+  margin: 0 auto;  
 }
 
-@media screen and (max-width: 320px) {
-  .wrapper {
-    width: 100%;
-    margin: 0 auto;
+/* MOBILE PORTAIT  */
+
+@media only screen and (min-width: 375px) {
+  .container {
+      width: 320px;      
   }
 }
+
+/* MOBILE LANDSCAPE  */
+
+@media only screen and (min-width: 568px) {
+  .container {
+      width: 500px;
+  }
+}
+
+/* TABLET PORTRAIT  */
+
+@media only screen and (min-width: 768px){
+  .container {        
+      width: 700px;
+  }
+}
+
+/* TABLET LANDSCAPE  */
+
+@media only screen and (min-width: 1024px){
+  .container {
+      width: 956px;
+  }
+}
+
+/* LAPTOP & DESKTOP DISPLAYS  */
+
+@media only screen and (min-width: 1200px) {
+  .container {
+      width: 1132px;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .container {
+      width: 1432px;
+  }
+}
+
+

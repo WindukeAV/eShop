@@ -66,8 +66,3 @@
 	line-height: 19px;	
 	}
 
-@media screen and (max-width: 414px) {
-	.card {
-		width: 355px;
-	}
-}
