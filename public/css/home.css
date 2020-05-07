@@ -8,19 +8,19 @@
 .homepage__titles {
 	position: absolute;
 	top: 244px;
-	height: 120px;	
+	height: 120px;
 	min-width: 320px;
 	max-width: 661px;
-	font-family: 'Roboto Slab', serif;	
+	font-family: 'Roboto Slab', serif;
 }
 
-.homepage__title {	
+.homepage__title {
 	width: 304px;
-	padding: 10px 8px 0;
 	margin: 0;
+	padding: 10px 8px 0;
 	text-transform: uppercase;
 	font-size: 20px;
-	font-weight: bold;	
+	font-weight: bold;
 	letter-spacing: 0.1em;
 	line-height: 32px;
 }
@@ -29,7 +29,7 @@
 	padding-left: 8px;
 	padding-right: 8px;
 	font-size: 16px;
-	font-weight: normal;	
+	font-weight: normal;
 	line-height: 21px;
 }
 
@@ -42,27 +42,27 @@
 }
 
 .homepage__products_cards {
-	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;	
+	justify-content: space-between;
+	margin: 0 auto;
 }
 
 .homepage__container {
-	margin: 0 auto;
 	width: 304px;
+	margin: 0 auto;
 }
 
 @media screen and (min-width: 375px) {
-	.homepage__container {		
+	.homepage__container {
 		width: 324px;
 	}
 }
 
 @media screen and (min-width: 1024px) {
 	.homepage__products_title {
-		font-size: 36px;
 		margin: 70px 0 32px 0;
+		font-size: 36px;
 	}
 }
 
@@ -83,10 +83,9 @@
 		letter-spacing: normal;
 	}
 
-	.homepage__subtitle {	
-		padding-left: 20px;	
+	.homepage__subtitle {
+		padding-left: 20px;
 		font-size: 24px;
 		line-height: 32px;
 	}
 }
-

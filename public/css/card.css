@@ -3,7 +3,7 @@
 	height: 100%;
 	margin-bottom: 20px;
 	border-radius: 4px;
-	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);	
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card__container {
@@ -40,30 +40,30 @@
 	font-size: 14px;
 	font-weight: 500;
 	font-family: Roboto;
-	line-height: 28px;	
+	line-height: 28px;
 }
 
 .card__parameters_cost {
 	margin: 0;
 	font-size: 24px;
 	font-weight: 500;
-	font-family: Roboto;	
-	line-height: 28px;	
+	font-family: Roboto;
+	line-height: 28px;
 }
 
 .card__btn {
+	float:right;
 	width: 168px;
 	height: 35px;
-	float:right;
 	margin: 24px 0;
 	border: 0;
 	border-radius: 4px;
-	outline: none;
 	text-transform: uppercase;
+	outline: none;
 	font-size: 16;
 	font-weight: 500;
 	font-family: Roboto;
-	line-height: 19px;	
+	line-height: 19px;
 }
 
 @media only screen and (min-width: 375px) {

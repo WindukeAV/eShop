@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 	box-sizing: border-box;
 }
 
@@ -42,15 +42,15 @@ body {
 
 .container {
     width: 300px;
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 
 /* MOBILE PORTAIT  */
 
 @media only screen and (min-width: 375px) {
     .container {
-        width: 330px;      
-    }    
+        width: 330px;
+    }
 }
 
 /* MOBILE LANDSCAPE  */
@@ -64,7 +64,7 @@ body {
 /* TABLET PORTRAIT  */
 
 @media only screen and (min-width: 768px){
-    .container {        
+    .container {
         width: 630px;
     }
 }
@@ -90,5 +90,3 @@ body {
         width: 1526px;
     }
 }
-
-
