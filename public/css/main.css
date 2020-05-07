@@ -7,87 +7,88 @@ body {
 /* THEMES */
 
 .c-primary {
-  color: #000;
+    color: #000;
+}
+
+.c-primary-l1 {
+    color: #565656;
 }
 
 .c-accent {
-  color: #fff;
+    color: #fff;
 }
 
 .c-secondary {
-  color: #FF6666;
+    color: #FF6666;
 }
 
 .c-secondary-d1 {
-  color: rgb(224, 62, 62);
+    color: rgb(224, 62, 62);
 }
 
 .b-primary {
-  background-color: #E5E5E5;
+    background-color: #E5E5E5;
 }
 
 .b-accent {
-  background: #FF6666
+    background: #FF6666
 }
 
 .b-secondary {
-  background-color: #FF4545;
-}
-
-.t-primary {
-  color: #565656;
+    background-color: #FF4545;
 }
 
 /* LAYOUT */
 
 .container {
-  margin: 0 auto;  
+    width: 300px;
+    margin: 0 auto;    
 }
 
 /* MOBILE PORTAIT  */
 
 @media only screen and (min-width: 375px) {
-  .container {
-      width: 320px;      
-  }
+    .container {
+        width: 330px;      
+    }    
 }
 
 /* MOBILE LANDSCAPE  */
 
 @media only screen and (min-width: 568px) {
-  .container {
-      width: 500px;
-  }
+    .container {
+        width: 528px;
+    }
 }
 
 /* TABLET PORTRAIT  */
 
 @media only screen and (min-width: 768px){
-  .container {        
-      width: 700px;
-  }
+    .container {        
+        width: 630px;
+    }
 }
 
 /* TABLET LANDSCAPE  */
 
 @media only screen and (min-width: 1024px){
-  .container {
-      width: 956px;
-  }
+    .container {
+        width: 950px;
+    }
 }
 
 /* LAPTOP & DESKTOP DISPLAYS  */
 
-@media only screen and (min-width: 1200px) {
-  .container {
-      width: 1132px;
-  }
+@media only screen and (min-width: 1440px) {
+    .container {
+        width: 1300px;
+    }
 }
 
-@media only screen and (min-width: 1500px) {
-  .container {
-      width: 1432px;
-  }
+@media only screen and (min-width: 1600px) {
+    .container {
+        width: 1526px;
+    }
 }
 
 
