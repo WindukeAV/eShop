@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	padding: 0;
+	padding: 0;	
 	box-sizing: border-box;
 }
 
@@ -64,7 +64,7 @@ body {
 /* TABLET PORTRAIT  */
 
 @media only screen and (min-width: 768px){
-    .container {
+    .container {        
         width: 630px;
     }
 }
