@@ -51,10 +51,6 @@
 	display: none;
 }
 
-.navbar__item:hover {
-	border-bottom: 3px solid #FF6666;
-}
-
 @media screen and (min-width: 768px) {
 	.navbar__menubtn {
 		display: none;
@@ -72,13 +68,53 @@
 
 	.navbar__item {
 		width: 100%;
-		padding: 20px 22px;
+		margin-left: 40px;
 		text-decoration: none;
 		text-transform: uppercase;
 		font-size: 18px;
 		font-weight: 400;
 		font-family: 'Roboto', sans-serif;
-		line-height: 21px;
+		line-height: 60px;
 		text-align: center;
-	}	
+	}
+
+	.navbar__item:nth-child(1)::before {
+		content: '';
+		position: absolute;
+		top: 1px;
+		width: 82px;
+		height: 60px;
+		border-bottom: 3px solid #FF6666;
+		transform: scaleX(0);
+		transition: all .3s;
+		transform-origin: left;
+	}
+
+	.navbar__item:nth-child(2)::before {
+		content: '';
+		position: absolute;
+		top: 1px;
+		width: 82px;
+		height: 60px;
+		border-bottom: 3px solid #FF6666;
+		transform: scaleX(0);
+		transition: all .3s;
+		transform-origin: center;
+	}
+
+	.navbar__item:nth-child(3)::before {
+		content: '';
+		position: absolute;
+		top: 1px;
+		width: 82px;
+		height: 60px;
+		border-bottom: 3px solid #FF6666;
+		transform: scaleX(0);
+		transition: all .3s;
+		transform-origin: right;
+	}
+
+	.navbar__item:hover::before {
+		transform: scaleX(1);
+	}
 }
