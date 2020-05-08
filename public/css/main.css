@@ -49,7 +49,13 @@ body {
 
 @media only screen and (min-width: 375px) {
     .container {
-        width: 330px;
+        width: 355px;
+    }
+}
+
+@media only screen and (min-width: 425px) {
+    .container {
+        width: 405px;
     }
 }
 
@@ -65,7 +71,7 @@ body {
 
 @media only screen and (min-width: 768px){
     .container {
-        width: 630px;
+        width: 728px;
     }
 }
 
