@@ -21,8 +21,9 @@ function CounterView(containerNode) {
   this.button.addEventListener('click', this.handleClick);
 }
 
+
 function CounterController(view) {
-  var view = view;
+  var view = view; 
   var model = new CounterModel();
   var isProccessingIncrementClick = false;
 
