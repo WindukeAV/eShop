@@ -27,13 +27,7 @@ function CounterController(view) {
   var isProccessingIncrementClick = false;
 
   this.handleInrementClick = function() {
-    if (isProccessingIncrementClick) return;
-
-    isProccessingIncrementClick = true;
-    model.inrementCounter(function(counter) {
-      isProccessingIncrementClick = false;
-      view.setCounter(counter);
-    });
+    model.inrementCounter();
   };
 }
 
@@ -43,6 +37,7 @@ function CounterModel() {
   this.inrementCounter = function(callback) {
     setTimeout(() => {
       counter += 1;
+      subject.next(counter);
 
       if (typeof callback === 'function') {
         callback(counter);
