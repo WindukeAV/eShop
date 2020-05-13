@@ -1,31 +1,37 @@
 'use strict';
 
 function CounterView(containerNode) {
+  View.call(this, containerNode);
+
   var controller = new CounterController(this);
-  this.containerNode = containerNode;
-  this.button = this.containerNode.querySelector('[component-child-id="button"]');
-  this.title = this.containerNode.querySelector('[component-child-id="title"]');
+  this.button = this.getChildById('button');
+  this.title = this.getChildById('title');
 
   this.handleClick = function() {
-    console.log('processing click...');
     controller.handleInrementClick();
   };
 
-  this.setCounter = function(counter) {
-    this.title.textContent = 'Счетчик ' + counter;
-  };
-
   this.handleClick = this.handleClick.bind(this);
-  this.setCounter = this.setCounter.bind(this);
-
   this.button.addEventListener('click', this.handleClick);
+
+  this.title.innerText = 'Счетчик: ' + controller.getData().counter;
+
+  controller.subscribe(
+    (
+      function (data) {
+        this.title.innerText = 'Счетчик: ' + data.counter;
+      }
+    ).bind(this)
+  );
 }
 
-
 function CounterController(view) {
-  var view = view; 
+  var view = view;
   var model = new CounterModel();
-  var isProccessingIncrementClick = false;
+
+  this.subscribe = model.subscribe;
+  this.unsubscribe = model.unsubscribe;
+  this.getData = model.getData;
 
   this.handleInrementClick = function() {
     model.inrementCounter();
@@ -33,20 +39,20 @@ function CounterController(view) {
 }
 
 function CounterModel() {
-  var counter = 0;
-
-  this.inrementCounter = function(callback) {
-    setTimeout(() => {
-      counter += 1;
-      subject.next(counter);
-
-      if (typeof callback === 'function') {
-        callback(counter);
-      }
-    }, 500);
+  var data = {
+    counter: 0,
   };
+  var subject = new Subject(data);
 
-  this.getCounter = function() {
-    return counter;
+  this.subscribe = subject.subscribe;
+  this.unsubscribe = subject.unsubscribe;
+  this.getData = subject.getData;
+
+  this.inrementCounter = function() {
+    setTimeout(() => {
+      data.counter += 1;
+
+      subject.next(data);
+    }, 500);
   };
 }

@@ -1,8 +1,10 @@
-function Subject() {
+function Subject(initData) {
   var listeners = [];
-  var data;
+  var data = initData;
 
   this.subscribe = function(listener) {
+    if (typeof listener !== 'function') return;
+
     var index = listeners.findIndex(listener);
 
     if (index !== -1) return;
@@ -11,6 +13,8 @@ function Subject() {
   };
 
   this.unsubscribe = function(listener) {
+    if (typeof listener !== 'function') return;
+
     var index = listeners.findIndex(listener);
 
     if (index === -1) return;
@@ -21,10 +25,17 @@ function Subject() {
   this.next = function(newData) {
     data = newData;
 
-    for (var i = 0; listeners; i++) {
-      if (typeof listeners[i] === 'function') {
-        listeners[i] (data);
-      }
+    for (var i = 0; i < listeners.length; i++) {
+      listeners[i] (data);
     }
   }
+
+  this.getData = function() {
+    return data;
+  }
+
+  this.subscribe = this.subscribe.bind(this);
+  this.unsubscribe = this.unsubscribe.bind(this);
+  this.next = this.next.bind(this);
+  this.getData = this.getData.bind(this);
 }
