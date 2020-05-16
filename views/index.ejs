@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="/public/main.css">
-  
-    <%- isContentRendered ? headCustomContent : include(headCustomContent) %> 
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <link rel="stylesheet" href="/public/css/navbar.css">
+    <link rel="stylesheet" href="/public/css/card.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    
+    <%- isContentRendered ? headCustomContent : include(headCustomContent) %>
     <% if (!isContentRendered) { %>
       <title><%= title %></title>
       <meta name = "description" content = "<%= description %>">
@@ -20,8 +25,7 @@
   </head>
 
   <body>
-    <%- include('./components/navbar/navbar.ejs') %> 
-    <%- isContentRendered ? content : include(content) %> 
+    <%- include('./components/navbar/navbar.ejs') %>
+    <%- isContentRendered ? content : include(content) %>
   </body>
-
 </html>

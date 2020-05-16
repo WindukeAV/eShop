@@ -1,11 +1,21 @@
-<h1>
-  BODY
-  <div component="counter">
-    <p component-child-id="title">Счетчик 0</p>
-    <button component-child-id="button">increment</button>
-  </div>
-
-  <div component="cart">
-    <p>Cart Component</p>
-  </div>
-</h1>
+ <img class="homepage__background" src="../../../public/resources/bg.png" alt="background">
+    <div class="homepage__titles b-secondary">
+        <p class="homepage__title c-accent">лучший онлайн магазин</p>
+        <p class="homepage__subtitle c-accent">Которым управляют крабы</p>
+    </div>
+    <div class="container">
+        <p class="homepage__products_title">
+            товары года и самый сок
+        </p>
+        <div class="homepage__products_cards container">
+            <%- include("../../components/card/card.ejs") %>
+            <%- include("../../components/card/card.ejs") %>
+            <%- include("../../components/card/card.ejs") %>
+            <%- include("../../components/card/card.ejs") %>
+        </div>
+        <div component="counter">
+          <p component-child-id="title">Счетчик 0</p>
+          <button component-child-id="button">increment</button>
+        </div>
+    </div>
+    
