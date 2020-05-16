@@ -1,5 +1,5 @@
-var PLACE_MARKER = {
-  'name': name,
+var PLACE_MARK = {
+  'name_mark': name_mark,
   'coordination': coordination,
   'number': number,
 }
