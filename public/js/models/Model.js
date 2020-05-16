@@ -1,5 +1,11 @@
-function Model() {
-  this.data = {};
+function Model(initalData, getSubject) {
+  var subject = new Subject(initalData);
 
-  this.request = function () { } // make api request
+  this.subscribe = subject.subscribe;
+  this.unsubscribe = subject.unsubscribe;
+  this.getData = subject.getData;
+
+  if (typeof getSubject === 'function') {
+    getSubject(subject);
+  }
 }

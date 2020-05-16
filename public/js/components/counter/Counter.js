@@ -39,14 +39,10 @@ function CounterController(view) {
 }
 
 function CounterModel() {
-  var data = {
-    counter: 0,
-  };
-  var subject = new Subject(data);
+  var data = { counter: 5 };
+  var subject;
 
-  this.subscribe = subject.subscribe;
-  this.unsubscribe = subject.unsubscribe;
-  this.getData = subject.getData;
+  Model.call(this, data, function(_subject) { subject = _subject; });
 
   this.inrementCounter = function() {
     setTimeout(() => {
