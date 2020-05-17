@@ -12,16 +12,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=924e4a04-f5d5-451f-b79d-232bf919cd32&lang=ru_RU" type="text/javascript"></script>
+
     <%- isContentRendered ? headCustomContent : include(headCustomContent) %>
     <% if (!isContentRendered) { %>
       <title><%= title %></title>
       <meta name = "description" content = "<%= description %>">
     <% } %>
 
-    <script src="/public/js/utils/Subject.js"></script>
-    <script src="/public/js/models/Model.js"></script>
-    <script src="/public/js/views/View.js"></script>
-    <script defer src="/public/js/components/counter/Counter.js"></script>
+    
+    <script defer src="/public/js/models/Model.js"></script>
+    <script defer src="/public/js/controllers/MapController.js"></script>
+    <script defer src="/public/js/views/View.js"></script>    
     <script defer src="/public/js/app.js"></script>
   </head>
 

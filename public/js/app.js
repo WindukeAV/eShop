@@ -1,13 +1,11 @@
 'use strict';
 
 var COMPONENTS_VIEWS = {
-  'counter': CounterView,
-  'cart': '4eburek',
+  'map': View,  
 }
 
 function App() {
-  var elements = document.querySelectorAll('[component]');
-
+  var elements = document.querySelectorAll('[component]');  
   for (var i = 0; i < elements.length; i++) {
     var componentName = elements[i].getAttribute('component');
     var view = COMPONENTS_VIEWS[componentName];

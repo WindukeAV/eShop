@@ -1,11 +1,18 @@
+'use strict';
+
 function View(containerNode) {
 	this.containerNode = containerNode;
+	this.controller = new MapController();
 
-	this.getChildById = function(id) {
-		var child = this.containerNode.querySelector('[component-child-id="' + id + '"]');
+	this.getComponentById = function(id) {
+		var component = this.containerNode.querySelector('[component-child-id="' + id + '"]');
 
-		return child;
+		return component;
 	};
+	
+	this.getComponentById = this.getComponentById.bind(this);	
 
-	this.getChildById = this.getChildById.bind(this);
+	var mapNode = this.getComponentById('ymaps-container');
+	
+	this.controller.initMap(mapNode);	
 }
