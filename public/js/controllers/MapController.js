@@ -10,7 +10,7 @@ function MapController() {
 			var myGeoObject = new ymaps.GeoObject({
 				geometry: {
 					type: "Point",
-					coordinates: [59.8931, 30.34857]
+					coordinates: [59.8931, 30.34856]
 				}
 			});
 
