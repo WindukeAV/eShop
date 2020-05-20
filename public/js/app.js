@@ -1,7 +1,7 @@
 'use strict';
 
 var COMPONENTS_VIEWS = {
-  'map': View,  
+  'map': View,
 }
 
 function App() {

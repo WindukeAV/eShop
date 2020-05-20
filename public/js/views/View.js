@@ -4,15 +4,16 @@ function View(containerNode) {
 	this.containerNode = containerNode;
 	this.controller = new MapController();
 
-	this.getComponentById = function(id) {
+	this.getChildById = function(id) {
 		var component = this.containerNode.querySelector('[component-child-id="' + id + '"]');
 
 		return component;
 	};
-	
-	this.getComponentById = this.getComponentById.bind(this);	
+	this.getChildById = this.getChildById.bind(this);
 
-	var mapNode = this.getComponentById('ymaps-container');
+	var mapNode = this.getChildById('ymaps-container');
+	this.controller.initMap(mapNode);
 	
-	this.controller.initMap(mapNode);	
+	var counterButton = this.getChildById('button');	
+	this.controller.buttonClick(counterButton);
 }
