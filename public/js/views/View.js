@@ -13,7 +13,19 @@ function View(containerNode) {
 
 	var mapNode = this.getChildById('ymaps-container');
 	this.controller.initMap(mapNode);
-	
-	var counterButton = this.getChildById('button');	
-	this.controller.buttonClick(counterButton);
+
+
+	var buttonser = this.getChildById('button');
+	this.controller.settingCenter(buttonser);
+
+	// this.button.addEventListener('click', onClick);
+
+	// function onClick() {
+	// 	console.log('click')
+	// };
+
+
+	// var counterButton = this.getChildById('button');
+	// this.controller.buttonClick(counterButton);
+
 }
