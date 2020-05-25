@@ -13,5 +13,16 @@
             <%- include("../../components/card/card.ejs") %>
             <%- include("../../components/card/card.ejs") %>
         </div>
+
     </div>
-    
+    <div component="map" сlass="container">
+        <div component-child-id="ymaps-container" style="width: 80%; height: 400px; margin: 0 auto; border: 1px solid black;" ></div>
+        <p component-child-id="title">Счетчик 0</p>
+        <button component-child-id="button">increment</button>
+        <button component-child-id="ymaps-coordinates">Магазин №1</button>
+        <button component-child-id="ymaps-coordinates">Магазин №2</button> 
+    </div>
+    <div class="homepage__contacts">
+        <p class="homepage__contacts_title" component-child-id="title">Наши адреса</p>
+    </div>
+ 
