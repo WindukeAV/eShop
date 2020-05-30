@@ -7,14 +7,28 @@ function MapView(containerNode) {
 	var maps = this.getChildById('ymaps-container');
 	this.mapController.initMap(maps);
 
-	this.button = this.getChildById('button');
-
-	var button_2 = this.getChildById('button_2');
-	button_2.addEventListener('click', setCenter.bind(this));
+	this.buttonsContainer = this.getChildById('buttons-container');
 	
-	function setCenter() {
-		
-		this.mapController.setCenter();
-		
+	this.setCenter = (function (index) {
+		this.mapController.centerMapToShopById(this.mapController.shops[index].id);
+	}).bind(this);
+
+	this.makeShopButtonListener = (function (index) {
+		return (
+			function () {
+				this.setCenter(index);
+			}
+		).bind(this);
+	}).bind(this);
+
+	for (var i = 0; i < this.mapController.shops.length; i++) {
+		var shop = this.mapController.shops[i];
+		var buttonClickListener = this.makeShopButtonListener(i);
+		var button = document.createElement('button');
+
+		button.innerText = shop.title;
+		button.addEventListener('click', buttonClickListener);
+
+		this.buttonsContainer.appendChild(button);
 	}
 }
