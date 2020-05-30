@@ -1,10 +1,10 @@
 'use strict';
 
 var COMPONENTS_VIEWS = {
-  'map': View,
+  'map': MapView,
 }
 
-function App() {
+function App() {  
   var elements = document.querySelectorAll('[component]');  
   for (var i = 0; i < elements.length; i++) {
     var componentName = elements[i].getAttribute('component');
