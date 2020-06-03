@@ -1,4 +1,4 @@
-function Subject(initData) {
+  function Subject(initData) {
   var listeners = [];
   var data = initData;
 

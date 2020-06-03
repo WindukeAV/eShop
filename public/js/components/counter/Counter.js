@@ -16,7 +16,7 @@ function CounterView(containerNode) {
 
   this.title.innerText = 'Счетчик: ' + controller.getData().counter;
 
-  controller.subscribe(
+  controller.subscribe( 
     (
       function (data) {
         this.title.innerText = 'Счетчик: ' + data.counter;
