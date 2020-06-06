@@ -5,11 +5,14 @@
   this.subscribe = function(listener) {
     if (typeof listener !== 'function') return;
 
-    var index = listeners.findIndex(listener);
+    var index = listeners.findIndex(function(_listener) {
+      return _listener === listener;
+    });
 
     if (index !== -1) return;
 
     listeners.push(listener);
+
   };
 
   this.unsubscribe = function(listener) {
@@ -28,11 +31,11 @@
     for (var i = 0; i < listeners.length; i++) {
       listeners[i] (data);
     }
-  }
+  };
 
   this.getData = function() {
     return data;
-  }
+  };
 
   this.subscribe = this.subscribe.bind(this);
   this.unsubscribe = this.unsubscribe.bind(this);

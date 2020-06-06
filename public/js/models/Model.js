@@ -9,4 +9,3 @@ function Model(initalData, getSubject) {
     getSubject(subject);
   }
 }
-
