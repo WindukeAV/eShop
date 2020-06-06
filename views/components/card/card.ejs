@@ -1,13 +1,15 @@
-<div class="card">
-	<img src="../../../public/resources/card.png" alt="card" class="card__picture">	
-	<p class="card__title">Краб-крабов</p>
+<div class="card" component="product-card" component-auto-init="false">
+	<img src="../../../public/resources/card.png" alt="card" class="card__picture">
+	<p component-child-id="product-card-title" class="card__title">Краб-крабов</p>
 	<p class="card__subtitle">это супер-пупер краб поможет вам и вашим друзьям!</p>
 	<div class="card__parameters">
-		<p class="card__parameters_presence c-primary-l1">в наличии:</p>			
-		<p class="card__parameters_cost">19000 &#8381</p>
-	</div>	
+		<p class="card__parameters_presence c-primary-l1">
+			в наличии: <span component-child-id="product-card-remains"></span>
+		</p>
+		<p component-child-id="product-card-price" class="card__parameters_cost">19000 &#8381</p>
+	</div>
 	<div class="card__parameters">
-		<p class="card__parameters_presence c-primary-l1"></p>	
-		<button class="card__btn c-accent b-secondary">купить</button>
+		<p class="card__parameters_presence c-primary-l1"></p>
+		<button component-child-id="product-card-buy" class="card__btn c-accent b-secondary">купить</button>
 	</div>
 </div>

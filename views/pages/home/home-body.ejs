@@ -7,7 +7,7 @@
         <p class="homepage__products_title">
             товары года и самый сок
         </p>
-        <div class="homepage__products_cards container">
+        <div component="hot-product-list" component-auto-init="true" class="homepage__products_cards container">
             <%- include("../../components/card/card.ejs") %>
             <%- include("../../components/card/card.ejs") %>
             <%- include("../../components/card/card.ejs") %>
@@ -15,7 +15,7 @@
         </div>
 
     </div>
-    <div component="map" сlass="container">
+    <div component="map" component-auto-init="true" сlass="container">
         <div component-child-id="ymaps-container" style="width: 100%; height: 400px; margin: 0 auto; border: 1px solid black;" ></div>
         <div class="shop-buttons" component-child-id="buttons-container">
         </div>

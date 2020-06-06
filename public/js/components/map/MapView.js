@@ -130,15 +130,3 @@ function MapModel() {
 		subject.next(this.data);
 	}, 2000);
 }
-
-// function Model() {
-// 	var subject = new Subject();
-// 	this.subscribe = subject.subscribe;
-// 	this.unsubscribe = subject.unsubscribe;
-// 	this.getdata = subect.getdata;
-
-// 	subject.subscribe(counter);
-
-	
-	
-// }

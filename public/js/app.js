@@ -2,15 +2,21 @@
 
 var COMPONENTS_VIEWS = {
   'map': MapView,
+  'hot-product-list': HotProductListView,
 }
 
 function App() {  
-  var elements = document.querySelectorAll('[component]');  
+  var elements = document.querySelectorAll('[component]'); 
+ 
   for (var i = 0; i < elements.length; i++) {
     var componentName = elements[i].getAttribute('component');
+    var componentAutoInit = elements[i].getAttribute('component-auto-init');
     var view = COMPONENTS_VIEWS[componentName];
+    var shouldAutoInitComponent = componentAutoInit === 'true';
 
-    if (typeof view === 'function') {
+    if (typeof view === 'function' && shouldAutoInitComponent) {
+      console.info("INIT COMPONENT: " + componentName);
+
       new view(elements[i]);
     }
   }
