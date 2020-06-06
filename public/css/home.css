@@ -53,6 +53,19 @@
 	margin: 0 auto;
 }
 
+.homepage__contacts {
+	width: 100%;
+	height: 300px;	
+	font-weight: 500;
+	font-family: Roboto;
+	line-height: 42px;
+	font-size: 32px;
+}
+
+.homepage__contacts_title {
+	text-align: center;
+}
+
 @media screen and (min-width: 375px) {
 	.homepage__container {
 		width: 324px;
