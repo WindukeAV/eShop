@@ -9,3 +9,6 @@ function Model(initalData, getSubject) {
     getSubject(subject);
   }
 }
+
+//Заполнить модель товарами. 
+//Подписаться Вью на модель.

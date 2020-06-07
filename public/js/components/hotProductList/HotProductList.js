@@ -8,11 +8,11 @@
  */
 
 /**
- * @param {HTMLElement} containerNode 
+ * @param {HTMLElement} containerNode
  * @returns {HotProductListView}
  */
 function HotProductListView(containerNode) {
-  View.call(this, containerNode);
+  View.call(this, containerNode);  
 
   /**
    * @type {Array.<ProductCardView>}
@@ -20,23 +20,45 @@ function HotProductListView(containerNode) {
   var productCardViews = [];
   var controller = new HotProductListController(this);
 
+  controller.subscribe(function(data) {
+    console.log(data);
+  })
+
   /**
    * @returns {void}
    */
   this.initProductList = function() {
     var components = this.getChildComponentsNodeByName('product-card');
+    
+
 
     for (var i = 0; i < components.length; i++) {
       var productCardView = new ProductCardView(components[i]);
 
+      this.productData = { //методы которые будут брать данные из этих дом кусков
+        id: i,
+        title: getTitleData(title),
+        remains: productCardView.remains,
+        price: productCardView.price,
+      }     
       
-      
-      productCardViews.push(productCardView);
+ //добавить в addProduct что-бы он оказался в моделе и добавился в product list
+
+      console.log(this.productData);
+      this.addProductData = controller.addProduct(this.productData)
+
+      console.log(productCardViews)
+
+
+
+      productCardViews.push(productCardView);      
     }
   };
 
   this.initProductList();
 }
+
+// ------------------------------------------------
 
 /**
  * @param {HotProductListView} view 
@@ -51,6 +73,8 @@ function HotProductListController(view) {
   this.addProductToCart = model.addProductToCart;
 }
 
+// ------------------------------------------------
+
 /**
  * @returns {HotProductListModel}
  */
@@ -62,11 +86,11 @@ function HotProductListModel() {
    * @type {Subject}
    */
   var subject;
-
+    
   Model.call(this, data, function(_subject) {
     subject = _subject;
   });
-
+  
   /**
    * @param {Product} product
    * @returns {void}
