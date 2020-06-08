@@ -37,9 +37,9 @@ function HotProductListView(containerNode) {
 
       this.productData = { //методы которые будут брать данные из этих дом кусков
         id: i,
-        title: getTitleData(title),
-        remains: productCardView.remains,
-        price: productCardView.price,
+        title: productCardView.getTitleData,
+        remains: productCardView.getRemains,
+        price: productCardView.getPrice,
       }     
       
  //добавить в addProduct что-бы он оказался в моделе и добавился в product list
