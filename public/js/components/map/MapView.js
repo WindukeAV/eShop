@@ -2,6 +2,7 @@
 
 function MapView(containerNode) {
 	View.call(this, containerNode);
+	
 	this.mapController = new MapController(this);
 	var maps = this.getChildById('ymaps-container');
 	
@@ -46,11 +47,11 @@ function MapView(containerNode) {
 
 
 function MapController() {
+
 	this.mapModel = new MapModel();
 	this.subscribe = this.mapModel.subscribe;
-  this.unsubscribe = this.mapModel.unsubscribe;
-  this.getData = this.mapModel.getData;
-
+	this.unsubscribe = this.mapModel.unsubscribe;
+	this.getData = this.mapModel.getData;
 	this.shopsFromModel = this.mapModel.data;
 	
 	var myMap;

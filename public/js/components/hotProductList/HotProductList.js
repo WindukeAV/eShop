@@ -1,4 +1,18 @@
 /**
+ * @typedef ProductCardData
+ * @type {object}
+ * @property {Product} product
+ * @property {boolean} isInCart
+ * @property {number} count
+ */
+
+/**
+ * @typedef HotProductListModelData
+ * @type {object}
+ * @property {Array.<ProductCardData>} productCardList
+ */
+
+/**
  * @typedef Product
  * @type {object}
  * @property {string} id - id
@@ -8,17 +22,21 @@
  */
 
 /**
- * @param {HTMLElement} containerNode 
+ * @param {HTMLElement} containerNode
  * @returns {HotProductListView}
  */
 function HotProductListView(containerNode) {
   View.call(this, containerNode);
+  var controller = new HotProductListController(this);
+
+  //вынести контроллер сабскрайб
+  //сможем его переиспользовать 
+  //брать данные из модели и отображать их
 
   /**
    * @type {Array.<ProductCardView>}
    */
   var productCardViews = [];
-  var controller = new HotProductListController(this);
 
   /**
    * @returns {void}
@@ -29,13 +47,41 @@ function HotProductListView(containerNode) {
     for (var i = 0; i < components.length; i++) {
       var productCardView = new ProductCardView(components[i]);
 
-      
-      
+      this.productData = {
+        id: i,
+        title: productCardView.getTitle(),
+        remains: productCardView.getRemains(),
+        price: productCardView.getPrice(),
+      }
+
+      this.addProductData = controller.addProduct(this.productData)
       productCardViews.push(productCardView);
+    }
+
+    controller.subscribe(this.handleModelUpdate);
+
+    this.handleModelUpdate(controller.getData());
+  };
+
+  /**
+   * Обрабатывает данные модели
+   * @param {HotProductListModelData} data
+   * @returns {void}
+   */
+  this.handleModelUpdate = function(data) {
+    for (var i = 0; i < data.productCardList.length; i++) {
+      var cardData = data.productCardList[i];
+
+      productCardViews[i].setTitle(cardData.product.title);
+      productCardViews[i].setRemains(cardData.product.remains);
+      productCardViews[i].setPrice(cardData.product.price);
     }
   };
 
-  this.initProductList();
+  this.initProductList = this.initProductList.bind(this);
+  this.handleModelUpdate = this.handleModelUpdate.bind(this);
+
+  this.initProductList();  
 }
 
 /**
@@ -44,8 +90,7 @@ function HotProductListView(containerNode) {
  */
 function HotProductListController(view) {
   var model = new HotProductListModel();
-
-  Controller.call(this, model);
+  Controller.call(this, model);  
 
   this.addProduct = model.addProduct;
   this.addProductToCart = model.addProductToCart;
@@ -55,24 +100,28 @@ function HotProductListController(view) {
  * @returns {HotProductListModel}
  */
 function HotProductListModel() {
+  /**
+   * @type {HotProductListModelData}
+   */
   var data = {
-    productList: [],
+    productCardList: [],
   };
+  
   /**
    * @type {Subject}
    */
   var subject;
-
+    
   Model.call(this, data, function(_subject) {
     subject = _subject;
   });
-
+  
   /**
    * @param {Product} product
    * @returns {void}
    */
   this.addProduct = function(product) {
-    data.productList.push(product);
+    data.productCardList.push({ product: product, isInCart: false, count: 0 });
 
     subject.next(data);
   };
@@ -87,3 +136,30 @@ function HotProductListModel() {
     // TODO: update product card view
   };
 }
+
+/*1. Кнопка купить -> Кнопка в корзине 
+  2. интуп + - по количеству товара
+  3. метод понимания нахождения товара в корзине
+  4. HotproductCardListModel -> общение с корзиной -> список товаров -> productList[] = массив 
+  товаров -> productCardList[
+    {
+      ProductData:
+      isInCart: false
+      Count: 0
+    }
+  ]
+
+  5. подумать как правильно проверить кнопку 
+  6. подкорректировать данные которые заполнит ProductCardView -> добавляет продукты -> должна
+   отдавать карточки или отдать только продукт
+  7. подписаться на обновления для ProductCardView -> в HotProductListModel обновлятся данные -> 
+  hotProductList должна отреагировать на изменения и обновить данные
+  8. после того как все товары добавлены в HotProductList -> ProductCardView должна подписаться
+  на HotProductList с обновленными товарами.
+  9. <= setTitle -> добавить сеттеры строку получает новый тайтл внутри себя обращается к куску дома и с помощью
+  innerText засовывает туда данные 
+  10. Подписка hotPdoructView на HotProductListModel
+
+    ProductCardView.setTitle(ProductList[i].dataTitle)
+
+*/
