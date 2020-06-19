@@ -1,4 +1,18 @@
 /**
+ * @typedef ProductCardData
+ * @type {object}
+ * @property {Product} product
+ * @property {boolean} isInCart
+ * @property {number} count
+ */
+
+/**
+ * @typedef HotProductListModelData
+ * @type {object}
+ * @property {Array.<ProductCardData>} productCardList
+ */
+
+/**
  * @typedef Product
  * @type {object}
  * @property {string} id - id
@@ -15,28 +29,15 @@ function HotProductListView(containerNode) {
   View.call(this, containerNode);
   var controller = new HotProductListController(this);
 
-
-  this.getDataFromModel = function() {
-    
-  }
-
-
-  console.log(controller.getData())
-
-  // controller.subscribe(function() {
-    
-  // })
-
-
   //вынести контроллер сабскрайб
   //сможем его переиспользовать 
   //брать данные из модели и отображать их
 
-
-    /**
-     * @type {Array.<ProductCardView>}
-     */
+  /**
+   * @type {Array.<ProductCardView>}
+   */
   var productCardViews = [];
+
   /**
    * @returns {void}
    */
@@ -52,11 +53,34 @@ function HotProductListView(containerNode) {
         remains: productCardView.getRemains(),
         price: productCardView.getPrice(),
       }
-      console.log(this.productData);
+
       this.addProductData = controller.addProduct(this.productData)
       productCardViews.push(productCardView);
     }
+
+    controller.subscribe(this.handleModelUpdate);
+
+    this.handleModelUpdate(controller.getData());
   };
+
+  /**
+   * Обрабатывает данные модели
+   * @param {HotProductListModelData} data
+   * @returns {void}
+   */
+  this.handleModelUpdate = function(data) {
+    for (var i = 0; i < data.productCardList.length; i++) {
+      var cardData = data.productCardList[i];
+
+      productCardViews[i].setTitle(cardData.product.title);
+      productCardViews[i].setRemains(cardData.product.remains);
+      productCardViews[i].setPrice(cardData.product.price);
+    }
+  };
+
+  this.initProductList = this.initProductList.bind(this);
+  this.handleModelUpdate = this.handleModelUpdate.bind(this);
+
   this.initProductList();  
 }
 
@@ -76,18 +100,16 @@ function HotProductListController(view) {
  * @returns {HotProductListModel}
  */
 function HotProductListModel() {
-
+  /**
+   * @type {HotProductListModelData}
+   */
   var data = {
-    productCardList: [
-      
-    ],
+    productCardList: [],
   };
   
   /**
    * @type {Subject}
    */
-
-
   var subject;
     
   Model.call(this, data, function(_subject) {
@@ -98,11 +120,8 @@ function HotProductListModel() {
    * @param {Product} product
    * @returns {void}
    */
-  
-
-   
   this.addProduct = function(product) {
-    data.productCardList.push({product: product, isInCart: false, count: 0});
+    data.productCardList.push({ product: product, isInCart: false, count: 0 });
 
     subject.next(data);
   };

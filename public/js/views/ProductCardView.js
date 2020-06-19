@@ -44,8 +44,7 @@ function ProductCardView(containerNode) {
      * @param {String} data
      * @returns {String}
      */
-    var setData = function(param, data) {        
-        var data;
+    var setData = function(param, data) {
         param.innerText = data;
     }
 
@@ -55,12 +54,12 @@ function ProductCardView(containerNode) {
 
 
     this.setRemains = function(data) {
-        setData(remains, data);        
+        setData(remains, data);
     }
 
   
     this.setPrice = function(data) {
-        setData(price, data);        
+        setData(price, data);
     }
 
     /**
