@@ -2,44 +2,71 @@
  * @param {HTMLElement} containerNode 
  */
 function ProductCardView(containerNode) {
-  View.call(this, containerNode);
-  
-  var title = this.getChildById('product-card-title');
-  var remains = this.getChildById('product-card-remains');
-  var price = this.getChildById('product-card-price');
-  var container = undefined;
+    View.call(this, containerNode);
 
-  // this.remainsToNumber = function(container) {
-  //   if (typeof container === 'undefined' || typeof container == 'isNaN') {
-  //     console.log('loh')
-  //   }  
-  // };
-  // this.remainsToNumber('undefined')
+    var title = this.getChildById('product-card-title');
+    var remains = this.getChildById('product-card-remains');
+    var price = this.getChildById('product-card-price');
     
-  this.getTitle = function() {
-    return title.innerText;    
-  }
 
-  this.getRemains = function() {
-    var remainsAsNumber = Number(remains.innerText); 
-
-    if (isNaN(remainsAsNumber)) {
-      console.log("loh");
-      return null;
+    /**
+     * @param {String} 
+     * @returns {String}
+     */
+    this.getTitle = function() {          
+        return title.innerText;
     }
 
-    console.log("ne loh");
-    return remainsAsNumber;
-  }
+ 
+    /**
+     * @param {Number} number
+     * @returns {Number}
+     */    
+    this.getRemains = function() {
+        return this.isNumber(remains.innerText);
+    }
 
-  this.getPrice = function() {
-    return Number(price.innerText);    
-  }
+    this.getPrice = function() {
+        return this.isNumber(price.innerText);
+    }    
 
-  this.getRemains()
+    this.isNumber = function(value) {
+        var isNumber = Number(value);
+
+        if (isNaN(isNumber)) {           
+            return null;
+        }        
+
+        return isNumber;
+    }
+
+    /**
+     * @param {String} data
+     * @returns {String}
+     */
+    var setData = function(param, data) {        
+        var data;
+        param.innerText = data;
+    }
+
+    this.setTitle = function(data) {
+        setData(title, data);        
+    }
+
+
+    this.setRemains = function(data) {
+        setData(remains, data);        
+    }
+
+  
+    this.setPrice = function(data) {
+        setData(price, data);        
+    }
+
+    /**
+     * @param {String} value
+     * @returns {Number}
+     */     
+    
 }
 
-
-//зашишить через вар все, сделать метод для получения значения кусков дома.
-
-//Получение всех компонентов.
