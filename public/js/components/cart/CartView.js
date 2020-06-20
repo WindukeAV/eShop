@@ -28,7 +28,7 @@ function CartView(containerNode) {
   
   this.initFunction();
   
-
+  new CartModel();
 }
 
 
@@ -38,7 +38,6 @@ function CartController(view) {
 }
 
 function CartModel() {
-  
   /**
    * @type {CartModelData}
    */
@@ -96,8 +95,13 @@ function CartModel() {
 
     subject.next(data);
   }
-}
 
+  CartModel.getInstance = function() {
+    return this;
+  };
+
+  CartModel.getInstance = CartModel.getInstance.bind(this);
+}
 
 
 // ДОМА

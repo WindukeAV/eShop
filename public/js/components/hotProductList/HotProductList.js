@@ -44,12 +44,16 @@ function HotProductListView(containerNode) {
     for (var i = 0; i < components.length; i++) {
       var productCardView = new ProductCardView(components[i]);
 
+      this.subscribeBuyButtonClickToProductCardView(productCardView);
+
       this.productData = {
         id: i,
         title: productCardView.getTitle(),
         remains: productCardView.getRemains(),
         price: productCardView.getPrice(),
       }
+
+      productCardView.setId(i);
 
       this.addProductData = controller.addProduct(this.productData)
       productCardViews.push(productCardView);
@@ -59,8 +63,6 @@ function HotProductListView(containerNode) {
 
     this.handleModelUpdate(controller.getData());
   };
-
-
 
   /**
    * Обрабатывает данные модели
@@ -75,6 +77,30 @@ function HotProductListView(containerNode) {
       productCardViews[i].setRemains(cardData.product.remains);
       productCardViews[i].setPrice(cardData.product.price);
     }
+  };
+
+  /**
+   * Отлвавливание кликов по кнопке "купить" в карточке товара
+   * @param {ProductCardView} productCardView
+   * @returns {void}
+   */
+  this.handleCardBuyButtonClick = function(productCardView) {
+    controller.addProductToCart(productCardView.getId());
+  };
+
+  /**
+   * Подписка handleCardBuyButtonClick к карточке товара на клик по кнопке "купить"
+   * @param {ProductCardView} productCardView
+   * @returns {void}
+   */
+  this.subscribeBuyButtonClickToProductCardView = function(productCardView) {
+    var listener = function () {
+      this.handleCardBuyButtonClick(productCardView);
+    };
+
+    listener = listener.bind(this);
+
+    productCardView.handleClick(listener);
   };
 
   this.initProductList = this.initProductList.bind(this);
@@ -126,12 +152,27 @@ function HotProductListModel() {
   };
 
   /**
-   * @param {Product} product
+   * @param {number} productId
    * @returns {void}
    */
-  this.addProductToCart = function(product) {
-    // CartModel.addProduct(product);
+  this.addProductToCart = function(productId) {
+    var productCard = data.productCardList.find(function(productCard) {
+      return productCard.product.id === productId;
+    });
 
-    // TODO: update product card view
+    if (productCard) {
+      var product = productCard.product;
+      /**
+       * @type {CartModel}
+       */
+      var cart = CartModel.getInstance();
+
+      cart.addProduct({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        count: 1,
+      });
+    }
   };
 }

@@ -4,11 +4,30 @@
 function ProductCardView(containerNode) {
     View.call(this, containerNode);
 
+    /**
+     * @type {number}
+     */
+    var id;
     var title = this.getChildById('product-card-title');
     var remains = this.getChildById('product-card-remains');
     var price = this.getChildById('product-card-price');
-    
+    var buyButton = this.getChildById('product-card-buy');
 
+    /**
+     * @param {Function} listener
+     * @returns {void}
+     */
+    this.handleClick = function(listener) {
+        buyButton.addEventListener('click', listener);
+    }
+
+    /**
+     * @returns {number}
+     */
+    this.getId = function() {
+        return id;
+    }
+    
     /**
      * @param {String} 
      * @returns {String}
@@ -17,7 +36,6 @@ function ProductCardView(containerNode) {
         return title.innerText;
     }
 
- 
     /**
      * @param {Number} number
      * @returns {Number}
@@ -48,6 +66,14 @@ function ProductCardView(containerNode) {
         param.innerText = data;
     }
 
+    /**
+     * @param {number} id 
+     * @returns {void}
+     */
+    this.setId = function(_id) {
+        id = _id;
+    }
+
     this.setTitle = function(data) {
         setData(title, data);        
     }
@@ -61,11 +87,4 @@ function ProductCardView(containerNode) {
     this.setPrice = function(data) {
         setData(price, data);
     }
-
-    /**
-     * @param {String} value
-     * @returns {Number}
-     */     
-    
 }
-
