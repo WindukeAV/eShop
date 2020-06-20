@@ -1,11 +1,12 @@
 'use strict';
 
 var COMPONENTS_VIEWS = {
-  'map': MapView,
   'hot-product-list': HotProductListView,
+  'map': MapView,
+  'navbar-cart-count': CartView,
 }
 
-function App() {  
+function App() {
   var elements = document.querySelectorAll('[component]'); 
  
   for (var i = 0; i < elements.length; i++) {

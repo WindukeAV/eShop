@@ -117,4 +117,15 @@
 	.navbar__item:hover::before {
 		transform: scaleX(1);
 	}
+
+	.navbar__inCart {	
+		visibility: visible;
+	}
+
+	.navbar__card-icon {
+		width: 24px;
+		height: 24px;
+		margin-top: 16px;
+		margin-left: 10px;
+	}
 }

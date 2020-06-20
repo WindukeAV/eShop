@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * @typedef CartProduct
  * @type {object}
@@ -17,13 +19,26 @@
 
 function CartView(containerNode) {
   View.call(this, containerNode);
+
+  this.initFunction = function() {
+    var counters = this.getChildComponentsNodeByName('navbar-cart-count');    
+    console.log(counters);
+  }
+
+  
+  this.initFunction();
+  
+
 }
+
+
 
 function CartController(view) {
   Controller.call(this);
 }
 
 function CartModel() {
+  
   /**
    * @type {CartModelData}
    */
@@ -82,6 +97,8 @@ function CartModel() {
     subject.next(data);
   }
 }
+
+
 
 // ДОМА
 /**

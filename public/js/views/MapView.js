@@ -6,7 +6,5 @@ function MapView(containerNode) {
 		return component;
 	};
 	
-
-
 	this.getComponentById = this.getComponentById.bind(this);
 }
