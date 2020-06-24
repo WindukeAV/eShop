@@ -2,8 +2,8 @@
 
 var COMPONENTS_VIEWS = {
   'hot-product-list': HotProductListView,
-  'map': MapView,
-  'navbar-cart-count': CartView,
+  'map': Map,
+  'navbar-cart-count': Cart,
 }
 
 function App() {

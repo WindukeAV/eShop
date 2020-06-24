@@ -1,6 +1,6 @@
 'use strict';
 
-function MapView(containerNode) {
+function Map(containerNode) {
 	View.call(this, containerNode);
 	
 	this.mapController = new MapController(this);

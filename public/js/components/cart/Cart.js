@@ -17,7 +17,7 @@
  * @property {number} totalPrice
  */
 
-function CartView(containerNode) {
+function Cart(containerNode) {
   View.call(this, containerNode);
 
   this.initFunction = function() {
