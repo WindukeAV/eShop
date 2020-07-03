@@ -11,8 +11,10 @@ function ProductCardView(containerNode) {
     var title = this.getChildById('product-card-title');
     var remains = this.getChildById('product-card-remains');
     var price = this.getChildById('product-card-price');
+    var counter = this.getChildById('navbar__cart-count');
     var buyButton = this.getChildById('product-card-buy');
 
+    console.log(counter);
     /**
      * @param {Function} listener
      * @returns {void}
@@ -86,5 +88,9 @@ function ProductCardView(containerNode) {
   
     this.setPrice = function(data) {
         setData(price, data);
+    }
+
+    this.setCount = function(data) {
+        setData();
     }
 }

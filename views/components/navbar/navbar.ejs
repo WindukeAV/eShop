@@ -6,11 +6,11 @@
 			</div>
 		</div>
 		<h1 class="navbar__title">GRECRABS</h1>
-		<div class="navbar__menu">
+		<div class="navbar__menu" component="navbar__menu" component-auto-init="false">
 			<a href="" class="navbar__item c-primary">главная</a>
 			<a href="" class="navbar__item c-primary">каталог</a>
 			<a href="" class="navbar__item c-primary">корзина</a>
-			<div component="navbar-cart-count" component-auto-init="true" class="navbar__item c-primary navbar__inCart">0sdfsdf</div>
+			<div component-child-id="navbar__cart-count" component-auto-init="true" class="navbar__item c-primary navbar__inCart">0</div>
 			<img class="navbar__card-icon navbar__inCart" src="../../../public/resources/cart.png"  alt="">			
 		</div>		
 	</div>

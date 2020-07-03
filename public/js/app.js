@@ -3,7 +3,7 @@
 var COMPONENTS_VIEWS = {
   'hot-product-list': HotProductListView,
   'map': Map,
-  'navbar-cart-count': Cart,
+  'navbar__menu': Cart,
 }
 
 function App() {

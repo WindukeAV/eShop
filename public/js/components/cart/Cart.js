@@ -21,8 +21,8 @@ function Cart(containerNode) {
   View.call(this, containerNode);
 
   this.initFunction = function() {
-    var counters = this.getChildComponentsNodeByName('navbar-cart-count');    
-    console.log(counters);
+    var CartCounter = this.containerNode;
+    console.log(CartCounter);
   }
 
   
@@ -30,8 +30,6 @@ function Cart(containerNode) {
   
   new CartModel();
 }
-
-
 
 function CartController(view) {
   Controller.call(this);
@@ -47,6 +45,7 @@ function CartModel() {
     totalPrice: 0,
   };
 
+  console.log(data.productsCount)
   /**
    * @type {Subject}
    */
@@ -69,6 +68,7 @@ function CartModel() {
 
       productsCount += 1;
       totalPrice += product.price * product.count;
+      console.log(product.price);
     }
 
     data.productsCount = productsCount;
@@ -94,6 +94,42 @@ function CartModel() {
     recalcTotals();
 
     subject.next(data);
+  }
+
+    /**
+   * @param {CartProduct} product
+   * @returns {void}
+   */
+  this.delProduct = function(product) {
+    var cartProduct = data.products.find(function (_cartProduct) {
+      return _cartProduct.id === product.id;
+    });
+
+    if (cartProduct) {
+      cartProduct.count -= product.count;
+    } else {
+      data.product.splice(cartProduct, 1)
+    }
+
+    recalcTotals();
+
+    subject.next(data);
+  }
+
+  /**
+   * @param {CartModelData} productCount
+   * @returns {void}
+   */
+  this.PlusProductCount = function() {
+    data.productsCount += 1;
+  }
+
+  /**
+   * @param {CartModelData} productCount
+   * @returns {void}
+   */
+  this.MinusProductCount = function() {
+    data.productsCount -= 1;
   }
 
   CartModel.getInstance = function() {
