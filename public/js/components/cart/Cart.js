@@ -96,36 +96,42 @@ function CartModel() {
     subject.next(data);
   }
 
-    /**
-   * @param {CartProduct} product
+  /**
+   * @param {CartProduct['id']} id
    * @returns {void}
    */
-  this.delProduct = function(product) {
+  this.removeProduct = function(id) {
+    var cartProductIndex = data.products.findIndex(function (_cartProduct) {
+      return _cartProduct.id === id;
+    });
+
+    if (cartProductIndex) {
+      data.products.splice(cartProductIndex, 1);
+
+      recalcTotals();
+
+      subject.next(data);
+    }
+  }
+
+  /**
+   * @param {CartProduct['id']} id
+   * @returns {void}
+   */
+  this.PlusProductCount = function(id) {
     var cartProduct = data.products.find(function (_cartProduct) {
-      return _cartProduct.id === product.id;
+      return _cartProduct.id === id;
     });
 
     if (cartProduct) {
-      cartProduct.count -= product.count;
-    } else {
-      data.product.splice(cartProduct, 1)
+      cartProduct.count += 1;
+      
+      subject.next(data);
     }
-
-    recalcTotals();
-
-    subject.next(data);
   }
 
-  /**
-   * @param {CartModelData} productCount
-   * @returns {void}
-   */
-  this.PlusProductCount = function() {
-    data.productsCount += 1;
-  }
 
   /**
-   * @param {CartModelData} productCount
    * @returns {void}
    */
   this.MinusProductCount = function() {
