@@ -159,7 +159,7 @@ function HotProductListModel() {
     var productCard = data.productCardList.find(function(productCard) {
       return productCard.product.id === productId;
     });
-
+    console.log(productCard);
     if (productCard) {
       var product = productCard.product;
       /**

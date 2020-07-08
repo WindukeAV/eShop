@@ -21,11 +21,10 @@ function Cart(containerNode) {
   View.call(this, containerNode);
 
   this.initFunction = function() {
-    var CartCounter = this.containerNode;
+    var CartCounter = this;
     console.log(CartCounter);
   }
 
-  
   this.initFunction();
   
   new CartModel();
@@ -36,8 +35,9 @@ function CartController(view) {
 }
 
 function CartModel() {
+  
   /**
-   * @type {CartModelData}
+   * @type {CartModelData}0
    */
   var data = {
     products: [],
@@ -45,7 +45,6 @@ function CartModel() {
     totalPrice: 0,
   };
 
-  console.log(data.productsCount)
   /**
    * @type {Subject}
    */
@@ -68,7 +67,6 @@ function CartModel() {
 
       productsCount += 1;
       totalPrice += product.price * product.count;
-      console.log(product.price);
     }
 
     data.productsCount = productsCount;
@@ -81,9 +79,7 @@ function CartModel() {
    * @returns {void}
    */
   this.addProduct = function(product) {
-    var cartProduct = data.products.find(function (_cartProduct) {
-      return _cartProduct.id === product.id;
-    });
+
 
     if (cartProduct) {
       cartProduct.count += product.count;
@@ -96,6 +92,28 @@ function CartModel() {
     subject.next(data);
   }
 
+  /**
+   * @param {CartProduct['id']} id
+   * @returns {CartProduct}
+   */
+  getProductById = function(id) {
+    var cartProduct = data.products.find(function (_cartProduct) {
+      return _cartProduct.id === id;
+    });
+
+    if(cartProduct) {
+      return cartProduct
+    }
+  };
+
+  /**
+   * @param 
+   * @returns {void}
+   */
+  updateProductCount = function() {
+    
+  };
+ 
   /**
    * @param {CartProduct['id']} id
    * @returns {void}
@@ -129,13 +147,20 @@ function CartModel() {
       subject.next(data);
     }
   }
-
-
-  /**
+    /**
+   * @param {CartProduct['id']} id
    * @returns {void}
    */
-  this.MinusProductCount = function() {
-    data.productsCount -= 1;
+  this.MinusProductCount = function(id) {
+    var cartProduct = data.products.find(function (_cartProduct) {
+      return _cartProduct.id === id;
+    });
+
+    if (cartProduct) {
+      cartProduct.count -= 1;
+      
+      subject.next(data);
+    }
   }
 
   CartModel.getInstance = function() {
@@ -144,14 +169,4 @@ function CartModel() {
 
   CartModel.getInstance = CartModel.getInstance.bind(this);
 }
-
-
-// ДОМА
-/**
- * - 1. Пересмотреть весь проект (Вспомнить все!)
- * - 2. запилить вьюху для корзины (верстка + подписка на модель). Нужно показать кол-ва товаров
- * - 3. изменение кол-ва товара (с докой)
- * - 4. удаление товара (с докой)
- * - 5. Удалить лишние файлы + переименовать те файлы, которые криво названы
- * - 6. Стишок доучить
- */
+ 
